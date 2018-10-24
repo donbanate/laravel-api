@@ -13,13 +13,13 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Poll::class, function (Faker $faker) {
+$factory->define(App\Models\Poll::class, function (Faker $faker) {
     return [
         'title' => $faker->realText(50),
     ];
 });
 
-$factory->define(App\Question::class, function (Faker $faker) {
+$factory->define(App\Models\Question::class, function (Faker $faker) {
     $poll_ids = DB::table('polls')->pluck('id')->all();
 
     return [
@@ -29,7 +29,7 @@ $factory->define(App\Question::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(App\Answer::class, function (Faker $faker) {
+$factory->define(App\Models\Answer::class, function (Faker $faker) {
     $question_ids = DB::table('questions')->pluck('id')->all();
 
     return [
