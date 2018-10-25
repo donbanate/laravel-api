@@ -16,7 +16,7 @@ class PollsController extends Controller
 
     public function store(Request $request)
     {
-        //
+        
     }
 
     public function show($id)
@@ -26,13 +26,15 @@ class PollsController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Poll $poll)
     {
-        //
+        $poll->update($request->all());
+        return response()->json($poll, 200);
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, Poll $poll)
     {
-        //
+        $poll->delete();
+        return response()->json(null, 204);
     }
 }
