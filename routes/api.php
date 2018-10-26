@@ -23,3 +23,4 @@ Route::apiResource('questions', 'QuestionsController');
 
 // Fetch data in two tables POLLS and QUESTIONS
 Route::get('polls/{poll}/questions', 'PollsController@questions');
+Route::get('files/get', 'FilesController@show');
