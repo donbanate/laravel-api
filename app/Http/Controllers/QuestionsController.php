@@ -16,17 +16,7 @@ class QuestionsController extends Controller
     {
         return response()->json(Question::get(), 200);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -50,17 +40,6 @@ class QuestionsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -69,7 +48,8 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        return response()->json($question->update($request->all(), 200));
+        $question->update($request->all());
+        return response()->json($question, 200);
     }
 
     /**

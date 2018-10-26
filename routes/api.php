@@ -20,3 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('polls', 'PollsController');
 Route::any('errors', 'PollsController@errors'); // respond to any errors in api
 Route::apiResource('questions', 'QuestionsController');
+
+// Fetch data in two tables POLLS and QUESTIONS
+Route::get('polls/{poll}/questions', 'PollsController@questions');
