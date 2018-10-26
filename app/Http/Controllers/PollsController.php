@@ -31,14 +31,10 @@ class PollsController extends Controller
 
     public function show($id)
     {
-        $poll = Poll::find($id);
-        if (is_null($poll)) {
-            return response()->json(null, 404);
-        }
-
         $poll = Poll::with('questions')->findOrFail($id);
 
-        $response = new PollResource($poll, 200);
+        $response['poll'] = $poll;
+        $response['question'] = $poll->questions;
         return response()->json($response, 200);
     }
 
